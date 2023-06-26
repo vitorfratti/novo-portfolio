@@ -4,23 +4,31 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./sass/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
     <title>Portfólio - Vitor Fratti</title>
 </head>
 <body>
 
     <div id="app">
 
-        <header>
-            <div class="logo">
+        <!-- Header Padrão -->
+
+        <header class="original-header">
+            <div @click="section='home'; changeSection()" class="logo">
                 <h1>FRATTI<span>()</span>;</h1>
             </div>
             <div class="links">
-                <a class="selected" href="#">Home</a>
-                <a href="#">Sobre mim</a>
-                <a href="#">Projetos</a>
-                <a href="#">Conhecimentos</a>
-                <a href="#">Contato</a>
+                <a v-if="section == 'home'" class="selected" @click="section='home'; changeSection()">Início</a>
+                <a v-else @click="section='home'; changeSection()">Início</a>
+                <a v-if="section == 'sobremim'" class="selected" @click="section='sobremim'; changeSection()">Sobre mim</a>
+                <a v-else="section == 'sobremim'" @click="section='sobremim'; changeSection()">Sobre mim</a>
+                <a v-if="section == 'projetos'" class="selected" @click="section='projetos'; changeSection()">Projetos</a>
+                <a v-else @click="section='projetos'; changeSection()">Projetos</a>
+                <a v-if="section == 'conhecimentos'" class="selected" @click="section='conhecimentos'; changeSection()">Conhecimentos</a>
+                <a v-else @click="section='conhecimentos'; changeSection()">Conhecimentos</a>
+                <a v-if="section == 'contato'" class="selected" @click="section='contato'; changeSection()">Contato</a>
+                <a v-else @click="section='contato'; changeSection()">Contato</a>
             </div>
             <div class="info">
                 <button>
@@ -29,27 +37,248 @@
                     </svg>
                 </button>
             </div>
+            <div class="menu">
+                <button @click="toggleMenu">
+                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="24" height="24" viewBox="0,0,256,256" style="fill:#000000;">
+                        <g fill="#959bad" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><g transform="scale(5.12,5.12)"><path d="M0,7.5v5h50v-5zM0,22.5v5h50v-5zM0,37.5v5h50v-5z"></path></g></g>
+                    </svg>
+                </button>
+            </div>
         </header>
+
+        <!-- Header ativada pelo scroll -->
+
+        <header v-if="activeHeader == true" class="active-header animate__animated animate__fadeInDown">
+            <div @click="section='home'; changeSection()" class="logo">
+                <h1>FRATTI<span>()</span>;</h1>
+            </div>
+            <div class="links">
+                <a v-if="section == 'home'" class="selected" @click="section='home'; changeSection()">Início</a>
+                <a v-else @click="section='home'; changeSection()">Início</a>
+                <a v-if="section == 'sobremim'" class="selected" @click="section='sobremim'; changeSection()">Sobre mim</a>
+                <a v-else="section == 'sobremim'" @click="section='sobremim'; changeSection()">Sobre mim</a>
+                <a v-if="section == 'projetos'" class="selected" @click="section='projetos'; changeSection()">Projetos</a>
+                <a v-else @click="section='projetos'; changeSection()">Projetos</a>
+                <a v-if="section == 'conhecimentos'" class="selected" @click="section='conhecimentos'; changeSection()">Conhecimentos</a>
+                <a v-else @click="section='conhecimentos'; changeSection()">Conhecimentos</a>
+                <a v-if="section == 'contato'" class="selected" @click="section='contato'; changeSection()">Contato</a>
+                <a v-else @click="section='contato'; changeSection()">Contato</a>
+            </div>
+            <div class="info">
+                <button>
+                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="20" height="20" fill="#959BAD" viewBox="0 0 24 24">
+                        <path d="M 12 0 C 5.371094 0 0 5.371094 0 12 C 0 18.628906 5.371094 24 12 24 C 18.628906 24 24 18.628906 24 12 C 24 5.371094 18.628906 0 12 0 Z M 12 2 C 17.523438 2 22 6.476563 22 12 C 22 17.523438 17.523438 22 12 22 C 6.476563 22 2 17.523438 2 12 C 2 6.476563 6.476563 2 12 2 Z M 12 5.8125 C 11.816406 5.8125 11.664063 5.808594 11.5 5.84375 C 11.335938 5.878906 11.183594 5.96875 11.0625 6.0625 C 10.941406 6.15625 10.851563 6.285156 10.78125 6.4375 C 10.710938 6.589844 10.6875 6.769531 10.6875 7 C 10.6875 7.226563 10.710938 7.40625 10.78125 7.5625 C 10.851563 7.71875 10.941406 7.84375 11.0625 7.9375 C 11.183594 8.03125 11.335938 8.085938 11.5 8.125 C 11.664063 8.164063 11.816406 8.1875 12 8.1875 C 12.179688 8.1875 12.371094 8.164063 12.53125 8.125 C 12.691406 8.085938 12.816406 8.03125 12.9375 7.9375 C 13.058594 7.84375 13.148438 7.71875 13.21875 7.5625 C 13.289063 7.410156 13.34375 7.226563 13.34375 7 C 13.34375 6.769531 13.289063 6.589844 13.21875 6.4375 C 13.148438 6.285156 13.058594 6.15625 12.9375 6.0625 C 12.816406 5.96875 12.691406 5.878906 12.53125 5.84375 C 12.371094 5.808594 12.179688 5.8125 12 5.8125 Z M 10.78125 9.15625 L 10.78125 18.125 L 13.21875 18.125 L 13.21875 9.15625 Z"></path>
+                    </svg>
+                </button>
+            </div>
+            <div class="menu">
+                <button @click="toggleMenu">
+                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="24" height="24" viewBox="0,0,256,256" style="fill:#000000;">
+                        <g fill="#959bad" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><g transform="scale(5.12,5.12)"><path d="M0,7.5v5h50v-5zM0,22.5v5h50v-5zM0,37.5v5h50v-5z"></path></g></g>
+                    </svg>
+                </button>
+            </div>
+        </header>
+
+        <header v-if="activeHeader == false" class="active-header animate__animated animate__fadeOutUp">
+            <div @click="section='home'; changeSection()" class="logo">
+                <h1>FRATTI<span>()</span>;</h1>
+            </div>
+            <div class="links">
+                <a v-if="section == 'home'" class="selected" @click="section='home'; changeSection()">Início</a>
+                <a v-else @click="section='home'; changeSection()">Início</a>
+                <a v-if="section == 'sobremim'" class="selected" @click="section='sobremim'; changeSection()">Sobre mim</a>
+                <a v-else="section == 'sobremim'" @click="section='sobremim'; changeSection()">Sobre mim</a>
+                <a v-if="section == 'projetos'" class="selected" @click="section='projetos'; changeSection()">Projetos</a>
+                <a v-else @click="section='projetos'; changeSection()">Projetos</a>
+                <a v-if="section == 'conhecimentos'" class="selected" @click="section='conhecimentos'; changeSection()">Conhecimentos</a>
+                <a v-else @click="section='conhecimentos'; changeSection()">Conhecimentos</a>
+                <a v-if="section == 'contato'" class="selected" @click="section='contato'; changeSection()">Contato</a>
+                <a v-else @click="section='contato'; changeSection()">Contato</a>
+            </div>
+            <div class="info">
+                <button>
+                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="20" height="20" fill="#959BAD" viewBox="0 0 24 24">
+                        <path d="M 12 0 C 5.371094 0 0 5.371094 0 12 C 0 18.628906 5.371094 24 12 24 C 18.628906 24 24 18.628906 24 12 C 24 5.371094 18.628906 0 12 0 Z M 12 2 C 17.523438 2 22 6.476563 22 12 C 22 17.523438 17.523438 22 12 22 C 6.476563 22 2 17.523438 2 12 C 2 6.476563 6.476563 2 12 2 Z M 12 5.8125 C 11.816406 5.8125 11.664063 5.808594 11.5 5.84375 C 11.335938 5.878906 11.183594 5.96875 11.0625 6.0625 C 10.941406 6.15625 10.851563 6.285156 10.78125 6.4375 C 10.710938 6.589844 10.6875 6.769531 10.6875 7 C 10.6875 7.226563 10.710938 7.40625 10.78125 7.5625 C 10.851563 7.71875 10.941406 7.84375 11.0625 7.9375 C 11.183594 8.03125 11.335938 8.085938 11.5 8.125 C 11.664063 8.164063 11.816406 8.1875 12 8.1875 C 12.179688 8.1875 12.371094 8.164063 12.53125 8.125 C 12.691406 8.085938 12.816406 8.03125 12.9375 7.9375 C 13.058594 7.84375 13.148438 7.71875 13.21875 7.5625 C 13.289063 7.410156 13.34375 7.226563 13.34375 7 C 13.34375 6.769531 13.289063 6.589844 13.21875 6.4375 C 13.148438 6.285156 13.058594 6.15625 12.9375 6.0625 C 12.816406 5.96875 12.691406 5.878906 12.53125 5.84375 C 12.371094 5.808594 12.179688 5.8125 12 5.8125 Z M 10.78125 9.15625 L 10.78125 18.125 L 13.21875 18.125 L 13.21875 9.15625 Z"></path>
+                    </svg>
+                </button>
+            </div>
+            <div class="menu">
+                <button @click="toggleMenu">
+                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="24" height="24" viewBox="0,0,256,256" style="fill:#000000;">
+                        <g fill="#959bad" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><g transform="scale(5.12,5.12)"><path d="M0,7.5v5h50v-5zM0,22.5v5h50v-5zM0,37.5v5h50v-5z"></path></g></g>
+                    </svg>
+                </button>
+            </div>
+        </header>
+
+        <!-- Menu Lateral -->
+
+        <div class="menu-lateral">
+            <div class="container">
+                <div class="header">
+                    <div @click="section='home'; changeSection(); toggleMenu()" class="logo">
+                        <h1>FRATTI<span>()</span>;</h1>
+                    </div>
+                    <button @click="toggleMenu">
+                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="24" height="24" viewBox="0,0,256,256" style="fill:#000000;">
+                            <g fill="#959bad" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><g transform="scale(5.33333,5.33333)"><path transform="translate(24.00059,-9.94113) rotate(45.001)" d="M21.5,4.5h5.001v39h-5.001z"></path><path transform="translate(57.94113,24.00474) rotate(135.008)" d="M21.5,4.5h5v39.001h-5z"></path></g></g>
+                        </svg>
+                    </button>
+                </div>
+                <div class="links">
+                    <a v-if="section == 'home'" class="selected" @click="section='home'; changeSection(); toggleMenu()">Início</a>
+                    <a v-else @click="section='home'; changeSection(); toggleMenu()">Início</a>
+                    <a v-if="section == 'sobremim'" class="selected" @click="section='sobremim'; changeSection(); toggleMenu()">Sobre mim</a>
+                    <a v-else="section == 'sobremim'" @click="section='sobremim'; changeSection(); toggleMenu()">Sobre mim</a>
+                    <a v-if="section == 'projetos'" class="selected" @click="section='projetos'; changeSection(); toggleMenu()">Projetos</a>
+                    <a v-else @click="section='projetos'; changeSection(); toggleMenu()">Projetos</a>
+                    <a v-if="section == 'conhecimentos'" class="selected" @click="section='conhecimentos'; changeSection(); toggleMenu()">Conhecimentos</a>
+                    <a v-else @click="section='conhecimentos'; changeSection(); toggleMenu()">Conhecimentos</a>
+                    <a v-if="section == 'contato'" class="selected" @click="section='contato'; changeSection(); toggleMenu()">Contato</a>
+                    <a v-else @click="section='contato'; changeSection(); toggleMenu()">Contato</a>
+                </div>
+            </div>
+        </div>
 
         <main>
 
-            <section class="home">
+            <!-- Home -->
+
+            <section class="home" id="home">
                 <div class="container">
-                    <h1>Bem-vindo, meu nome é <span>Vitor Fratti</span> .</h1>
-                    <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</p>
+                    <h1 class="animate__animated animate__fadeInDown">Bem-vindo, meu nome é <span>Vitor Fratti</span> .</h1>
+                    <p class="animate__animated animate__fadeInUp">Desenvolvedor front-end, focado em aplicações web.</p>
                     <div>
-                        <button>Acessar meus links</button>
+                        <button class="animate__animated animate__fadeInUp">Acessar meus links</button>
                     </div>
                 </div>
-                <img class="top" src="assets/image/blur.png" alt="blur">
-                <img class="center" src="assets/image/blur.png" alt="blur">
+                <img class="top" src="image/blur.png" alt="blur">
+                <img class="left" src="image/blur.png" alt="blur">
+            </section>
+
+            <!-- Sobre mim -->
+
+            <section class="sobremim" id="sobremim">
+                <div class="container">
+                    <div class="top">
+                        <h4>-> Sobre mim</h4>
+                        <h2>Sobre mim</h2>
+                        <p>Tenho 19 anos e sou desenvolvedor front-end. Atualmente estou cursando o 1º semestre de <span>Engenharia de Software</span> e atuando como <span>estagiário</span> em <span>desenvolvimento web</span>.</p>
+                    </div>
+                    <div class="bottom"></div>
+                </div>
+            </section>
+
+            <!-- Projetos -->
+
+            <section class="projetos" id="projetos">
+                <div class="container">
+                    <div class="top">
+                        <div class="left">
+                            <h4>-> Projetos</h4>
+                            <h2>Projetos</h2>
+                            <p>Uma coleção de projetos onde são aplicados meus conhecimentos técnicos e habilidades em desenvolvimento.</p>
+                        </div>
+                        <div class="right">
+                            <button class="slick-prev"><-</button>
+                            <button class="slick-next">-></button>
+                        </div>
+                    </div>
+                    <div class="mid">
+                        <div v-for="(projeto, index) in projetos" :key="index" @mouseleave="projeto.buttons = false" @mouseover="projeto.buttons = true" class="projeto">
+                            <div v-if="projeto.buttons == true" class="clique animate__animated animate__fadeInDown">
+                                <h6>Clique para ver mais</h6>
+                                <img src="image/svg/click-svgrepo-com.svg" alt="click">
+                            </div>
+                            <div v-if="projeto.buttons == false" class="image animate__animated animate__fadeInDown">
+                                <img src="image/exemplo-image.jpeg" alt="example">
+                            </div>
+                            <div v-if="projeto.buttons == true" class="texts animate__animated animate__fadeInUp">
+                                <h2>{{ projeto.nome }}</h2>
+                                <p>{{ projeto.descricao }}</p>
+                            </div>
+                            <div v-if="projeto.buttons == false" class="texts animate__animated animate__fadeInDown">
+                                <h2>{{ projeto.nome }}</h2>
+                                <p>{{ projeto.descricao }}</p>
+                            </div>
+                            <div v-if="projeto.buttons == true" class="buttons animate__animated animate__fadeInUp">
+                                <button class="site">Ir para o site</button>
+                                <button class="repositorio">Ver repositório</button>
+                            </div>
+                            <div v-if="projeto.buttons == false" class="buttons animate__animated animate__fadeOutDown none">
+                                <button class="site">Ir para o site</button>
+                                <button class="repositorio">Ver repositório</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bottom">
+                        <a href="#">Ver todos os repositórios -></a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Conhecimentos -->
+
+            <section class="conhecimentos" id="conhecimentos">
+                <div class="container">
+                    <div class="top">
+                        <h4>-> Conhecimentos</h4>
+                        <h2>Conhecimentos</h2>
+                        <p>Tenho 19 anos e sou desenvolvedor front-end. Atualmente estou cursando o 1º semestre de <span>Engenharia de Software</span> e atuando como <span>estagiário</span> em <span>desenvolvimento web</span>.</p>
+                    </div>
+                    <div class="bottom"></div>
+                </div>
+            </section>
+
+            <!-- Contato -->
+
+            <section class="contato" id="contato">
+                <div class="container">
+                    <div class="top">
+                        <h4>-> Contato</h4>
+                        <h2>Contato</h2>
+                        <p>Fique à vontade para deixar sua mensagem ou pergunta.</p>
+                    </div>
+                    <div class="bottom">
+                        <div class="left">
+                            <input type="text" placeholder="Nome">
+                            <input type="text" placeholder="Email">
+                            <textarea placeholder="Mensagem"></textarea>
+                            <button>Enviar mensagem</button>
+                        </div>
+                        <div class="right">
+                            <span>
+                                <img src="image/svg/linkedin 1.svg" alt="linkedin">
+                                <h4>LinkedIn</h4>
+                            </span>
+                            <span>
+                                <img src="image/svg/github 1.svg" alt="github">
+                                <h4>Github</h4>
+                            </span>
+                            <span>
+                                <img src="image/svg/icons8-gmail-24 1.svg" alt="gmail">
+                                <h4>Gmail</h4>
+                            </span>
+                        </div>
+                    </div>
+                </div>
             </section>
 
         </main>
 
+        <!-- Footer -->
+
+        <footer>
+            <h4>Copyright © 2023 <span>vitorfratti</span>. Todos os direitos reservados.</h4>
+            <div class="logo">
+                <h1>FRATTI<span>()</span>;</h1>
+            </div>
+        </footer>
+
     </div>
 
     <script src="https://unpkg.com/vue@next"></script>
-    <script src="../../static/js/script.js"></script>
+    <script src="js/script.js"></script>
 </body>
 </html>
