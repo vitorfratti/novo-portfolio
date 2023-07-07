@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./sass/style.css">
+    <link rel="stylesheet" href="./scss/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
     <title>Portfólio - Vitor Fratti</title>
 </head>
@@ -31,7 +31,7 @@
                 <a v-else @click="section='contato'; changeSection()">Contato</a>
             </div>
             <div class="info">
-                <button>
+                <button @click="activeModal = true">
                     <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="20" height="20" fill="#959BAD" viewBox="0 0 24 24">
                         <path d="M 12 0 C 5.371094 0 0 5.371094 0 12 C 0 18.628906 5.371094 24 12 24 C 18.628906 24 24 18.628906 24 12 C 24 5.371094 18.628906 0 12 0 Z M 12 2 C 17.523438 2 22 6.476563 22 12 C 22 17.523438 17.523438 22 12 22 C 6.476563 22 2 17.523438 2 12 C 2 6.476563 6.476563 2 12 2 Z M 12 5.8125 C 11.816406 5.8125 11.664063 5.808594 11.5 5.84375 C 11.335938 5.878906 11.183594 5.96875 11.0625 6.0625 C 10.941406 6.15625 10.851563 6.285156 10.78125 6.4375 C 10.710938 6.589844 10.6875 6.769531 10.6875 7 C 10.6875 7.226563 10.710938 7.40625 10.78125 7.5625 C 10.851563 7.71875 10.941406 7.84375 11.0625 7.9375 C 11.183594 8.03125 11.335938 8.085938 11.5 8.125 C 11.664063 8.164063 11.816406 8.1875 12 8.1875 C 12.179688 8.1875 12.371094 8.164063 12.53125 8.125 C 12.691406 8.085938 12.816406 8.03125 12.9375 7.9375 C 13.058594 7.84375 13.148438 7.71875 13.21875 7.5625 C 13.289063 7.410156 13.34375 7.226563 13.34375 7 C 13.34375 6.769531 13.289063 6.589844 13.21875 6.4375 C 13.148438 6.285156 13.058594 6.15625 12.9375 6.0625 C 12.816406 5.96875 12.691406 5.878906 12.53125 5.84375 C 12.371094 5.808594 12.179688 5.8125 12 5.8125 Z M 10.78125 9.15625 L 10.78125 18.125 L 13.21875 18.125 L 13.21875 9.15625 Z"></path>
                     </svg>
@@ -65,7 +65,7 @@
                 <a v-else @click="section='contato'; changeSection()">Contato</a>
             </div>
             <div class="info">
-                <button>
+                <button @click="activeModal = true">
                     <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="20" height="20" fill="#959BAD" viewBox="0 0 24 24">
                         <path d="M 12 0 C 5.371094 0 0 5.371094 0 12 C 0 18.628906 5.371094 24 12 24 C 18.628906 24 24 18.628906 24 12 C 24 5.371094 18.628906 0 12 0 Z M 12 2 C 17.523438 2 22 6.476563 22 12 C 22 17.523438 17.523438 22 12 22 C 6.476563 22 2 17.523438 2 12 C 2 6.476563 6.476563 2 12 2 Z M 12 5.8125 C 11.816406 5.8125 11.664063 5.808594 11.5 5.84375 C 11.335938 5.878906 11.183594 5.96875 11.0625 6.0625 C 10.941406 6.15625 10.851563 6.285156 10.78125 6.4375 C 10.710938 6.589844 10.6875 6.769531 10.6875 7 C 10.6875 7.226563 10.710938 7.40625 10.78125 7.5625 C 10.851563 7.71875 10.941406 7.84375 11.0625 7.9375 C 11.183594 8.03125 11.335938 8.085938 11.5 8.125 C 11.664063 8.164063 11.816406 8.1875 12 8.1875 C 12.179688 8.1875 12.371094 8.164063 12.53125 8.125 C 12.691406 8.085938 12.816406 8.03125 12.9375 7.9375 C 13.058594 7.84375 13.148438 7.71875 13.21875 7.5625 C 13.289063 7.410156 13.34375 7.226563 13.34375 7 C 13.34375 6.769531 13.289063 6.589844 13.21875 6.4375 C 13.148438 6.285156 13.058594 6.15625 12.9375 6.0625 C 12.816406 5.96875 12.691406 5.878906 12.53125 5.84375 C 12.371094 5.808594 12.179688 5.8125 12 5.8125 Z M 10.78125 9.15625 L 10.78125 18.125 L 13.21875 18.125 L 13.21875 9.15625 Z"></path>
                     </svg>
@@ -97,7 +97,7 @@
                 <a v-else @click="section='contato'; changeSection()">Contato</a>
             </div>
             <div class="info">
-                <button>
+                <button @click="activeModal = true">
                     <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="20" height="20" fill="#959BAD" viewBox="0 0 24 24">
                         <path d="M 12 0 C 5.371094 0 0 5.371094 0 12 C 0 18.628906 5.371094 24 12 24 C 18.628906 24 24 18.628906 24 12 C 24 5.371094 18.628906 0 12 0 Z M 12 2 C 17.523438 2 22 6.476563 22 12 C 22 17.523438 17.523438 22 12 22 C 6.476563 22 2 17.523438 2 12 C 2 6.476563 6.476563 2 12 2 Z M 12 5.8125 C 11.816406 5.8125 11.664063 5.808594 11.5 5.84375 C 11.335938 5.878906 11.183594 5.96875 11.0625 6.0625 C 10.941406 6.15625 10.851563 6.285156 10.78125 6.4375 C 10.710938 6.589844 10.6875 6.769531 10.6875 7 C 10.6875 7.226563 10.710938 7.40625 10.78125 7.5625 C 10.851563 7.71875 10.941406 7.84375 11.0625 7.9375 C 11.183594 8.03125 11.335938 8.085938 11.5 8.125 C 11.664063 8.164063 11.816406 8.1875 12 8.1875 C 12.179688 8.1875 12.371094 8.164063 12.53125 8.125 C 12.691406 8.085938 12.816406 8.03125 12.9375 7.9375 C 13.058594 7.84375 13.148438 7.71875 13.21875 7.5625 C 13.289063 7.410156 13.34375 7.226563 13.34375 7 C 13.34375 6.769531 13.289063 6.589844 13.21875 6.4375 C 13.148438 6.285156 13.058594 6.15625 12.9375 6.0625 C 12.816406 5.96875 12.691406 5.878906 12.53125 5.84375 C 12.371094 5.808594 12.179688 5.8125 12 5.8125 Z M 10.78125 9.15625 L 10.78125 18.125 L 13.21875 18.125 L 13.21875 9.15625 Z"></path>
                     </svg>
@@ -181,12 +181,14 @@
                             <p>Uma coleção de projetos onde são aplicados meus conhecimentos técnicos e habilidades em desenvolvimento.</p>
                         </div>
                         <div class="right">
-                            <button class="slick-prev"><-</button>
-                            <button class="slick-next">-></button>
+                            <button @click="scrollBack()" class="slick-prev"><-</button>
+                            <h4>{{ sliderPosition + 1 }} / {{ projetos.length }}</h4>
+                            <button @click="scrollNext()" class="slick-next">-></button>
                         </div>
                     </div>
-                    <div class="mid">
-                        <div v-for="(projeto, index) in projetos" :key="index" @mouseleave="projeto.buttons = false" @mouseover="projeto.buttons = true" class="projeto">
+
+                    <div class="mid" ref="slider">
+                        <div v-for="(projeto, index) in projetos" :key="index" ref="projeto" @mouseleave="projeto.buttons = false" @mouseover="projeto.buttons = true" class="projeto">
                             <div v-if="projeto.buttons == true" class="clique animate__animated animate__fadeInDown">
                                 <h6>Clique para ver mais</h6>
                                 <img src="image/svg/click-svgrepo-com.svg" alt="click">
@@ -212,6 +214,7 @@
                             </div>
                         </div>
                     </div>
+
                     <div class="bottom">
                         <a href="#">Ver todos os repositórios -></a>
                     </div>
@@ -225,9 +228,24 @@
                     <div class="top">
                         <h4>-> Conhecimentos</h4>
                         <h2>Conhecimentos</h2>
-                        <p>Tenho 19 anos e sou desenvolvedor front-end. Atualmente estou cursando o 1º semestre de <span>Engenharia de Software</span> e atuando como <span>estagiário</span> em <span>desenvolvimento web</span>.</p>
+                        <p>Uma coleção de projetos onde são aplicados meus conhecimentos técnicos e habilidades em desenvolvimento.</p>
                     </div>
-                    <div class="bottom"></div>
+                    <div class="bottom">
+                        <div class="left">
+                            <span v-for="(conhecimento, index) in conhecimentos" :key="index" @mouseover="conhecimentoActive = []; conhecimentoActive.push(conhecimento)">
+                                <img :src="conhecimento.src" alt="">
+                            </span>
+                        </div>
+                        <div class="right">
+                            <span v-for="(conhecimento, index) in conhecimentoActive" :key="index">
+                                <h3>{{ conhecimento.name }}</h3>
+                                <h4 v-if="conhecimento.level === 'Avançado'" class="avancado">{{ conhecimento.level }}</h4>
+                                <h4 v-if="conhecimento.level === 'Intermediário'" class="intermediario">{{ conhecimento.level }}</h4>
+                                <h4 v-if="conhecimento.level === 'Básico'" class="basico">{{ conhecimento.level }}</h4>
+                                <p>{{ conhecimento.descricao }}</p>
+                            </span>
+                        </div>
+                    </div>
                 </div>
             </section>
 
@@ -271,7 +289,7 @@
 
         <footer>
             <h4>Copyright © 2023 <span>vitorfratti</span>. Todos os direitos reservados.</h4>
-            <div class="logo">
+            <div @click="this.section = 'home'; changeSection()" class="logo">
                 <h1>FRATTI<span>()</span>;</h1>
             </div>
         </footer>

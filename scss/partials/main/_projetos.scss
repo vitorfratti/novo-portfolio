@@ -1,0 +1,245 @@
+section.projetos {
+    width: 100%;
+    height: 100vh;
+    padding: 0 15%;
+    display: flex;
+    align-items: center;
+
+    .container {
+        display: grid;
+        gap: 2rem;
+
+        .top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            gap: 2rem;
+
+            @media (max-width: 1350px) {
+                padding: 0 4rem;
+            }
+
+            .left {
+                display: flex;
+                flex-direction: column;
+                gap: 0.75rem;
+
+                h4 {
+                    font-size: 16px;
+                    font-weight: 400;
+                    color: #448EEB;
+                }
+
+                h2 {
+                    font-size: 32px;
+                    font-weight: 400;
+                    color: #fefefe;
+                }
+
+                p {
+                    font-size: 16px;
+                    font-weight: 400;
+                    color: #959BAD;
+
+                    span {
+                        color: #448EEB;
+                    }
+                }
+            }
+
+            .right {
+                display: flex;
+                justify-content: space-between;
+                align-items: flex-end;
+                height: 100%;
+                gap: 1rem;
+
+                h4 {
+                    color: #fefefe;
+                    font-weight: 300;
+                    width: 3rem;
+                    height: 3rem;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                }
+
+                button {
+                    width: 3rem;
+                    height: 3rem;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    border-radius: 50%;
+                    border: none;
+                    background: linear-gradient(225deg, #1B2138 0%, #1b213840 100%);
+                    border: 1px solid #959bad40;
+                    color: #fefefe;
+                    font-size: 1.1rem;
+                    cursor: pointer;
+                    transition: all 0.2s;
+
+                    &:hover {
+                        border: 1px solid #959BAD;
+                        background: linear-gradient(225deg, #1B2138 0%, #1b213840 100%);
+                    }
+                }
+            }
+        }
+
+        .mid {
+            display: flex;
+            justify-content: flex-start;
+            flex-wrap: no-wrap;
+            max-width: 100%;
+            gap: 2rem;
+            overflow-x: hidden;
+
+            .projeto {
+                min-width: 22rem;
+                min-height: 22rem;
+                background: linear-gradient(225deg, #1B2138 0%, #1b213840 100%);
+                border: 1px solid #959bad40;
+                overflow-y: hidden;
+                border-radius: 10px;
+                padding: 2rem 1.5rem;
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-end;
+                gap: 2rem;
+                cursor: pointer;
+                transition: all 0.2s;
+                z-index: 99;
+
+                &:hover {
+                    border: 1px solid #959BAD;
+                    background: #1B2138;
+                }
+
+                &::-webkit-scrollbar {
+                    display: none;
+                }
+
+                .image {
+                    max-width: 100%;
+                    min-height: 50%;
+                    max-height: 50%;
+                    animation-duration: 0.5s;
+                    border: 1px solid #959badd0;
+                    border-radius: 6px;
+
+                    img {
+                        max-width: 100%;
+                        object-fit: cover;
+                        border-radius: 6px;
+                    }
+                }
+
+                .clique {
+                    display: flex;
+                    justify-content: flex-start;
+                    align-items: center;
+                    gap: 0.5rem;
+                    animation-duration: 0.5s;
+
+                    h6 {
+                        font-size: 14px;
+                        font-weight: 300;
+                        color: #959BAD;
+                    }
+
+                    img {
+                        width: 16px;
+                    }
+                }
+
+                .texts {
+                    width: 100%;
+                    display: grid;
+                    align-content: space-between;
+                    gap: 0.75rem;
+                    animation-duration: 0.5s;
+                    z-index: -1;
+
+                    h2 {
+                        font-size: 24px;
+                        font-weight: 400;
+                        color: #fefefe;
+                    }
+
+                    p {
+                        font-size: 16px;
+                        font-weight: 400;
+                        color: #959BAD;
+                    }
+                }
+
+                .buttons {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 0.75rem;
+                    animation-duration: 0.5s;
+
+                    &.none {
+                        display: none !important;
+                    }
+
+                    button.site {
+                        width: 100%;
+                        height: 3rem;
+                        border: none;
+                        border-radius: 10px;
+                        background: #448EEB;
+                        box-shadow: 0px 4px 4px 0px #00000040;
+                        color: #fefefe;
+                        font-size: 16px;
+                        font-weight: 400;
+                        cursor: pointer;
+                        transition: all 0.2s;
+
+                        &:hover {
+                            background: #0264DF;
+                        }
+                    }
+
+                    button.repositorio {
+                        width: 100%;
+                        height: 3rem;
+                        border: none;
+                        border-radius: 10px;
+                        background: none;
+                        border: 1px solid #959bad40;
+                        color: #fefefe;
+                        font-size: 16px;
+                        font-weight: 400;
+                        cursor: pointer;
+                        transition: all 0.2s;
+
+                        &:hover {
+                            border: 1px solid #959BAD;
+                        }
+                    }
+                }
+            }
+        }
+
+        .bottom {
+            display: flex;
+            justify-content: flex-start;
+            width: 100%;
+            padding: 0 15%;
+
+            @media (max-width: 1350px) {
+                padding: 0 4rem;
+            }
+
+            a {
+                font-size: 16px;
+                font-weight: 400;
+                color: #448EEB;
+                text-decoration: none;
+            }
+        }
+    }
+}

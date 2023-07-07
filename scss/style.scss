@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+@import 'partials/header/_header.scss';
+@import 'partials/header/active-header';
+@import 'partials/header/menu-lateral';
+@import 'partials/main/home';
+@import 'partials/main/sobremim';
+@import 'partials/main/projetos';
+@import 'partials/main/conhecimentos';
+@import 'partials/main/contato';
+@import 'partials/footer/footer';
+
+::-webkit-scrollbar {
+    width: 4px;
+}
+  
+::-webkit-scrollbar-track {
+    background: #0F1527;
+}
+  
+::-webkit-scrollbar-thumb {
+    background-color: #448EEB;
+    border-radius: 10px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+body {
+    background: #0F1527;
+}
